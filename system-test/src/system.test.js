@@ -40,7 +40,7 @@ describe('System-Test', () => {
         timeout: 20000,
         log: true
       })
-  }, 22000)
+  }, 20000)
 
   afterAll(async () => {
     console.log('All tests done, removing adapter configs from ods...')
