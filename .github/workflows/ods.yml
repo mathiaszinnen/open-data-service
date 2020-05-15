@@ -249,8 +249,9 @@ jobs:
           docker load -i ./liquibase-artifact/storage_liquibase.tar
           docker load -i ./transformation-artifact/transformation.tar
           docker load -i ./adapter-artifact/adapter.tar
-          docker-compose -f docker-compose.yml up -d adapter core transformation storage
-          docker-compose -f docker-compose.yml -f docker-compose.st.yml up --exit-code-from system-test scheduler system-test
+          docker-compose -f docker-compose.yml up -d adapter core transformation storage scheduler
+          docker-compose logs -f adapter scheduler &
+          docker-compose -f docker-compose.yml -f docker-compose.st.yml up --exit-code-from system-test system-test
           docker-compose logs
           docker-compose -f docker-compose.yml -f docker-compose.st.yml down
 
