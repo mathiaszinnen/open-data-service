@@ -293,7 +293,7 @@ describe('System-Test', () => {
       .put(`/datasources/${datasourceId}`)
       .send(datasource)
     expect(updateResponse.status).toEqual(204)
-    console.log(`[Test 4] Successfully updated datasource ${datasourceId}.`)
+    console.log(`[Test 4] Successfully updated Datasource ${datasourceId}.`)
 
     // Create updated pipeline
     pipelineConfig.id = pipelineId
