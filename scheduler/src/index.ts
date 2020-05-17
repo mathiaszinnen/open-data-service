@@ -12,7 +12,6 @@ const port = 8080
 const API_VERSION = '0.0.1'
 
 const CHRONJOB_EVERY_2_SECONDS = '*/2 * * * * *'
-const CHRONJOB_EVERY_1_SECONDS = '*/1* * * * *'
 
 const INITIAL_CONNECTION_RETRIES = parseInt(process.env.INITIAL_CONNECTION_RETRIES || '30')
 const INITIAL_CONNECTION_RETRY_BACKOFF = parseInt(process.env.INITIAL_CONNECTION_RETRY_BACKOFF || '3000')
@@ -80,7 +79,7 @@ async function initPipelineConfigSync (retries = 30, retryBackoff = 3000): Promi
 
   pipelinePollingJob = schedule.scheduleJob(
     'PipelineConfigSyncJob',
-    CHRONJOB_EVERY_1_SECONDS,
+    CHRONJOB_EVERY_2_SECONDS,
     CoreClient.sync)
 }
 

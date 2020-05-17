@@ -101,8 +101,12 @@ export function getCachedPipelineById(pipelineId: number): PipelineConfig | unde
   return id_to_pipeline.get(pipelineId)
 }
 
-export function getCachedPipelinesByDatasourceId(datasourceId: number) : PipelineConfig[] {
+export async function getCachedPipelinesByDatasourceId(datasourceId: number) : PipelineConfig[] {
   console.log(`size of datasourceid_to_pipelines cache is ${datasourceid_to_pipelines.size}`)
+  if (datasourceid_to_pipelines.size === 0) {
+    // empty cache => trigger manual fetch
+    await sync()
+  }
   return datasourceid_to_pipelines.get(datasourceId) || []
 }
 
