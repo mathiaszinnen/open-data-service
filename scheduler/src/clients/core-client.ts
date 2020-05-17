@@ -102,7 +102,7 @@ export function getCachedPipelineById(pipelineId: number): PipelineConfig | unde
 }
 
 export function getCachedPipelinesByDatasourceId(datasourceId: number) : PipelineConfig[] {
-  console.log(`size of datasourceid_to_pipelines cache is ${datasourceid_to_pipelines.size()}`)
+  console.log(`size of datasourceid_to_pipelines cache is ${datasourceid_to_pipelines.size}`)
   return datasourceid_to_pipelines.get(datasourceId) || []
 }
 
